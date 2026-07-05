@@ -53,6 +53,24 @@ import g5 from "../assets/g5.jpg";
 import g6 from "../assets/g6.jpg";
 import g7 from "../assets/g7.jpg";
 
+import moment from '@/assets/moments.jpg'
+import moment1 from '@/assets/moments1.jpg'
+import moment2 from '@/assets/moments2.jpg'
+import moment3 from '@/assets/moments3.jpg'
+import moment4 from '@/assets/moments4.jpg'
+import moment5 from '@/assets/moments5.jpg'
+import moment6 from '@/assets/moments6.jpg'
+import moment7 from '@/assets/moments7.jpg'
+import moment8 from '@/assets/moments8.jpg'
+import moment9 from '@/assets/moments9.jpg'
+import moment10 from '@/assets/moments10.jpg'
+import moment11 from '@/assets/moments11.jpg'
+import moment12 from '@/assets/moments12.jpg'
+
+
+
+
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -596,6 +614,7 @@ const EXP = [
   { img: g4, t: "Alpine Camping", d: "Meadow campsites surrounded by wildflowers." },
   { img: g7, t: "Nature Walks", d: "Forest trails through moss, pine and birdsong." },
   { img: g6, t: "Snow Peaks & Prayer Flags", d: "Sacred summits and fluttering colours in the wind." },
+  
 ];
 
 function Experiences() {
@@ -649,6 +668,20 @@ const GALLERY = [
   { src: g7, alt: "Sunlit pine forest trail", h: "" },
   { src: g5, alt: "Traditional Himachali home-cooked meal", h: "" },
   { src: about, alt: "Wooden Kinnauri homestay", h: "row-span-2" },
+    { src: moment, alt: "Ayansh Snow-View exterior", h: "row-span-2" },
+  { src: moment1, alt: "Traditional Kinnauri village", h: "" },
+  { src: moment2, alt: "Sunrise over Himalayan peaks", h: "" },
+  { src: moment3, alt: "Mountain trekking trail", h: "row-span-2" },
+  { src: moment4, alt: "Bonfire under the stars", h: "" },
+  { src: moment5, alt: "Snow-covered mountain views", h: "" },
+  { src: moment6, alt: "Peaceful pine forest walk", h: "row-span-2" },
+  { src: moment7, alt: "Traditional wooden homestay", h: "" },
+  { src: moment8, alt: "Camping in alpine meadows", h: "" },
+  { src: moment9, alt: "Prayer flags in the mountains", h: "row-span-2" },
+  { src: moment10, alt: "Local Himachali cuisine", h: "" },
+  { src: moment11, alt: "Scenic valley landscape", h: "" },
+  { src: moment12, alt: "Memorable moments at Ayansh Snow-View", h: "row-span-2" },
+
 ];
 
 function Gallery() {
@@ -900,15 +933,18 @@ function Contact() {
         </div>
 
         <div className="reveal overflow-hidden rounded-3xl border border-border/60 shadow-lift">
-          <iframe
-            title="Ayansh Snow-View location on Google Maps"
-            src="https://www.google.com/maps?q=Yulla+Khas,+Kinnaur,+Himachal+Pradesh+172104&output=embed"
-            width="100%"
-            height="560"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[420px] w-full border-0 md:h-[560px]"
-          />
+        <iframe
+  title="Ayansh Snow-View location on Google Maps"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.2544064981726!2d78.13419429999999!3d31.544632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39066f0055c47e75%3A0x82deabc18c16b252!2s%22Ayansh%20Snow-View%20%26%20Trekker%27s%20Nest%20(Yulla%20Kanda)%22!5e0!3m2!1sen!2sin!4v1783249247301!5m2!1sen!2sin"
+  width="100%"
+  height="560"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="strict-origin-when-cross-origin"
+  className="block h-[420px] w-full border-0 md:h-[560px]"
+/>
+          
         </div>
       </div>
     </section>
