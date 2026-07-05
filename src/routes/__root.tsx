@@ -80,12 +80,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1f3a2c" },
       {
         title:
-          "Ayansh Snow-View & Trekker's Nest — Himalayan Homestay in Kinnaur",
+          "Yulla Kanda Trek Homestay | Ayansh Snow-View — Best Stay Near Yulla Kanda (12,000 ft)",
       },
       {
         name: "description",
         content:
-          "Authentic wooden Kinnauri homestay in Village Yulla Khas, Himachal Pradesh. Base camp for the Yulla Kanda Trek — home-cooked meals, mountain views and warm local hospitality.",
+          "Best homestay for Yulla Kanda Trek (12,000 ft). Traditional Kinnauri wooden stay near Bustan. Rs.800/person with meals. Scenic 1-2 km forest walk to reach us. Base camp for sacred Krishna temple pilgrimage.",
       },
       {
         property: "og:site_name",

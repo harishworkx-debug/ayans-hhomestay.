@@ -5,9 +5,9 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 const NAV = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Location", href: "#location" },
   { label: "Rooms", href: "#rooms" },
   { label: "Yulla Trek", href: "#trek" },
-  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 

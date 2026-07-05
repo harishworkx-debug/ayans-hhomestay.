@@ -29,6 +29,9 @@ import {
   ChevronRight,
   Quote,
   Star,
+  Footprints,
+  Luggage,
+  Info,
 } from "lucide-react";
 
 import { Navbar } from "@/components/site/Navbar";
@@ -58,21 +61,21 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Ayansh Snow-View & Trekker's Nest — Kinnauri Homestay & Yulla Kanda Base Camp",
+          "Yulla Kanda Trek Homestay | Ayansh Snow-View — Best Stay Near Yulla Kanda (12,000 ft) Kinnaur",
       },
       {
         name: "description",
         content:
-          "Authentic wooden homestay in Village Yulla Khas, Kinnaur. Base camp for the Yulla Kanda Trek — snow-mountain views, home-cooked meals and warm local hospitality.",
+          "Best homestay near Yulla Kanda Trek (12,000 ft). Authentic wooden homestay in Village Yulla Khas, Kinnaur. Your perfect base camp for the sacred Yulla Kanda pilgrimage. Rooms at Rs.800/person with meals. Scenic 1-2 km walk from Bustan through pine forests.",
       },
       {
         property: "og:title",
-        content: "Ayansh Snow-View & Trekker's Nest — Himalayan Homestay",
+        content: "Best Homestay for Yulla Kanda Trek | Ayansh Snow-View — Kinnaur",
       },
       {
         property: "og:description",
         content:
-          "Escape into the Himalayas. Stay in a traditional Kinnauri wooden homestay and begin your journey to the sacred Yulla Kanda Trek.",
+          "Plan your Yulla Kanda Trek with us! Closest homestay to the sacred 12,000 ft Krishna temple. Traditional Kinnauri stay with home-cooked meals at Rs.800/person. Adventure begins with a scenic walk from Bustan.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -85,16 +88,21 @@ export const Route = createFileRoute("/")({
           "@type": "LodgingBusiness",
           name: "Ayansh Snow-View & Trekker's Nest",
           description:
-            "Traditional Kinnauri wooden homestay and Yulla Kanda Trek base camp in Kinnaur, Himachal Pradesh.",
+            "Best homestay for Yulla Kanda Trek (12,000 ft). Traditional Kinnauri wooden homestay near Bustan. Scenic 1-2 km forest walk to reach us. Rs.800/person with dinner and breakfast.",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Village & P.O. Yulla Khas, Tehsil Nichar",
+            streetAddress: "Village & P.O. Yulla Khas, 1-2 km trek from Bustan",
             addressLocality: "Kinnaur",
             addressRegion: "Himachal Pradesh",
             postalCode: "172104",
             addressCountry: "IN",
           },
           telephone: "+91 8920114710",
+          priceRange: "₹800 per person (with meals)",
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Yulla Kanda Trek Base Camp", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Scenic Forest Walk Access", value: true },
+          ],
         }),
       },
     ],
@@ -110,6 +118,7 @@ function HomePage() {
       <main>
         <Hero />
         <About />
+        <LocationAccess />
         <WhyChooseUs />
         <Rooms />
         <YullaTrek />
@@ -172,14 +181,14 @@ function Hero() {
 
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6 pt-32 text-center text-snow md:pt-24">
         <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wider uppercase backdrop-blur-md">
-          <Mountain className="h-3.5 w-3.5" /> Kinnaur · Himachal Pradesh
+          <Mountain className="h-3.5 w-3.5" /> Base Camp for Yulla Kanda (12,000 ft)
         </span>
         <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[88px]">
-          Escape Into <em className="not-italic font-light italic text-sky-soft">The Himalayas</em>
+          Your Gateway to <em className="not-italic font-light italic text-sky-soft">Yulla Kanda</em>
         </h1>
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-snow/85 md:text-lg">
-          Stay amidst traditional Kinnauri villages and begin your unforgettable
-          journey to the sacred Yulla Kanda Trek.
+          Best homestay for the Yulla Kanda Trek — world's highest Krishna temple at 12,000 ft.
+          Traditional Kinnauri warmth, forest trail access, and home-cooked meals at Rs.800/person.
         </p>
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
           <a
@@ -233,7 +242,7 @@ function About() {
             className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-lift"
           />
           <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-forest px-6 py-5 text-snow shadow-lift md:block">
-            <div className="text-3xl font-semibold">3,900 m</div>
+            <div className="text-3xl font-semibold">12,000 ft</div>
             <div className="text-xs uppercase tracking-widest opacity-80">
               Yulla Kanda Summit
             </div>
@@ -268,8 +277,8 @@ function About() {
           <div className="mt-10 grid grid-cols-3 gap-4">
             {[
               { n: "12+", l: "Years hosting" },
-              { n: "12 km", l: "To the summit" },
-              { n: "4.9★", l: "Guest rating" },
+              { n: "12,000 ft", l: "Yulla Kanda" },
+              { n: "Rs.800", l: "Per person/night" },
             ].map((s) => (
               <div key={s.l} className="rounded-2xl border border-border/70 bg-cream/40 p-4 text-center">
                 <div className="text-2xl font-semibold text-forest">{s.n}</div>
@@ -278,6 +287,25 @@ function About() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Important Access Info */}
+          <div className="mt-8 rounded-2xl border-2 border-moss/30 bg-moss/5 p-6">
+            <div className="flex items-start gap-3">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-forest text-snow">
+                <RouteIcon className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="font-semibold text-pine">Adventure Begins with a Forest Walk</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                  Our homestay is located <strong>1-2 km from Bustan</strong> via a scenic trek
+                  through pine forests. This beautiful walk is part of the experience —
+                  arrive prepared for a short adventure and immerse yourself in nature
+                  from the moment you step off the road. Porters and mule support available
+                  for luggage on request.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -333,6 +361,111 @@ function WhyChooseUs() {
   );
 }
 
+/* ------------------------------------------------------ LOCATION ACCESS */
+
+function LocationAccess() {
+  return (
+    <section id="location" className="relative overflow-hidden bg-gradient-to-br from-forest/5 via-snow to-moss/5 py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="reveal text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-forest/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-forest">
+            <MapPin className="h-4 w-4" /> Important — Please Read
+          </span>
+          <h2 className="mt-5 text-4xl font-semibold text-pine md:text-5xl">
+            How to Reach Us
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Your adventure begins before you even arrive. Our homestay is nestled in nature,
+            accessible only by foot — making the journey part of the experience.
+          </p>
+        </div>
+
+        <div className="reveal mt-12 rounded-3xl border-2 border-forest/20 bg-snow p-8 shadow-lift md:p-12">
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Left - The Walk */}
+            <div className="space-y-6">
+              <h3 className="flex items-center gap-3 text-xl font-semibold text-pine">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-forest text-snow">
+                  <Footprints className="h-5 w-5" />
+                </span>
+                The Scenic Forest Walk
+              </h3>
+              <div className="space-y-4 text-[15px] leading-relaxed text-foreground/80">
+                <p>
+                  Our homestay is located <strong className="text-forest">1-2 km from Bustan</strong> (the nearest road-head).
+                  After arriving at Bustan by vehicle, you'll walk through beautiful pine forests
+                  and traditional Kinnauri villages to reach us.
+                </p>
+                <p>
+                  This walk takes roughly <strong>30-45 minutes</strong> and is part of what makes
+                  our location special — you're truly away from the noise, deep in the mountains.
+                </p>
+                <div className="rounded-xl bg-cream p-4">
+                  <div className="flex items-start gap-3">
+                    <Info className="h-5 w-5 shrink-0 text-moss mt-0.5" />
+                    <p className="text-sm text-foreground/75">
+                      Wear comfortable walking shoes. The trail is moderately uphill but well-defined.
+                      It's suitable for all ages — just take your time and enjoy the scenery!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - What We Offer */}
+            <div className="space-y-6">
+              <h3 className="flex items-center gap-3 text-xl font-semibold text-pine">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-warm-brown text-snow">
+                  <Luggage className="h-5 w-5" />
+                </span>
+                Luggage Support Available
+              </h3>
+              <div className="space-y-4">
+                <p className="text-[15px] leading-relaxed text-foreground/80">
+                  Don't want to carry your bags? We've got you covered:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    { t: "Mule/Porter Service", d: "Available on request for luggage transport" },
+                    { t: "Local Guide Meeting", d: "We can arrange someone to meet you at Bustan" },
+                    { t: "Pick-up Instructions", d: "Detailed directions shared on booking" },
+                    { t: "Light Packing Tip", d: "Carry only essentials for the walk" },
+                  ].map((item) => (
+                    <li key={item.t} className="flex items-start gap-3">
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-forest" />
+                      <div>
+                        <span className="font-medium text-pine">{item.t}:</span>{" "}
+                        <span className="text-muted-foreground">{item.d}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Callout */}
+          <div className="mt-8 rounded-2xl bg-forest/10 border border-forest/20 p-6 text-center">
+            <p className="text-lg font-medium text-pine">
+              Come prepared for a mini-adventure — the walk to our homestay is just the beginning
+              of your mountain experience!
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-snow transition-all hover:bg-pine"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Ask Us About Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* -------------------------------------------------------------- ROOMS */
 
 const ROOMS = [
@@ -369,10 +502,40 @@ function Rooms() {
               Simple wooden rooms. Extraordinary views.
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Each room is finished in local Kinnauri pine and set to open onto
-            the valley — quiet, warm and honest.
-          </p>
+          <div className="flex flex-col items-start gap-3 md:items-end">
+            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Each room is finished in local Kinnauri pine and set to open onto
+              the valley — quiet, warm and honest.
+            </p>
+            <div className="flex items-center gap-2 rounded-full bg-forest/10 px-4 py-2 text-sm font-semibold text-forest">
+              <Bed className="h-4 w-4" />
+              Rs.800 per person/night (with dinner & breakfast)
+            </div>
+          </div>
+        </div>
+
+        {/* Pricing Card */}
+        <div className="reveal mt-8 rounded-2xl border-2 border-forest/20 bg-gradient-to-r from-forest/5 to-moss/5 p-6">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-start gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-forest text-snow">
+                <UtensilsCrossed className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="font-semibold text-pine">All-Inclusive Pricing</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  <strong className="text-forest">Rs.800 per person per night</strong> includes
+                  comfortable stay, traditional dinner, and hot breakfast. No hidden charges.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 text-sm">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-forest">Rs.800</div>
+                <div className="text-xs text-muted-foreground">Per Person/Night</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -391,6 +554,9 @@ function Rooms() {
                   className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute right-4 top-4 rounded-full bg-snow/95 px-3 py-1.5 text-xs font-semibold text-forest shadow-soft">
+                  Rs.800/person
+                </div>
               </div>
               <div className="p-7">
                 <h3 className="text-xl font-semibold text-pine">{r.name}</h3>
@@ -413,7 +579,7 @@ function Rooms() {
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-forest px-5 py-3 text-sm font-medium text-snow transition-all hover:bg-pine"
                 >
-                  <MessageCircle className="h-4 w-4" /> Book Now
+                  <MessageCircle className="h-4 w-4" /> Book Now — Rs.800/person
                 </a>
               </div>
             </article>
@@ -430,7 +596,7 @@ const TREK_STEPS = [
   { icon: MapPin, label: "Starting Point", value: "Yulla Village" },
   { icon: Ruler, label: "Distance", value: "12 KM Trek" },
   { icon: Gauge, label: "Difficulty", value: "Moderate" },
-  { icon: Mountain, label: "Highest Point", value: "3,900 metres" },
+  { icon: Mountain, label: "Highest Point", value: "12,000 ft (3,900 m)" },
 ];
 
 const TREK_HIGHLIGHTS = [
@@ -459,11 +625,12 @@ function YullaTrek() {
             Signature experience
           </span>
           <h2 className="mt-3 text-4xl font-semibold text-pine md:text-5xl">
-            The Yulla Kanda Trek
+            The Yulla Kanda Trek — 12,000 ft
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-            A pilgrimage through oak forests, alpine meadows and prayer flags
-            to the world's highest Krishna temple.
+            A sacred pilgrimage through oak forests, alpine meadows and prayer flags
+            to the world's highest Krishna temple at 12,000 feet — your spiritual
+            adventure awaits.
           </p>
         </div>
 
@@ -481,7 +648,7 @@ function YullaTrek() {
               <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-forest">
                 <Mountain className="h-4 w-4" /> Sacred summit
               </div>
-              <div className="mt-1 font-semibold text-pine">3,900 m · 12 km</div>
+              <div className="mt-1 font-semibold text-pine">12,000 ft · 12 km trek</div>
             </div>
           </div>
 
@@ -803,6 +970,7 @@ function Contact() {
               title="Ayansh Snow-View & Trekker's Nest"
               lines={[
                 "Village & Post Office Yulla Khas",
+                "1-2 km trek from Bustan (road-head)",
                 "Tehsil Nichar, District Kinnaur",
                 "Himachal Pradesh — 172104",
               ]}
@@ -826,6 +994,17 @@ function Contact() {
               href={WHATSAPP_URL}
               external
             />
+          </div>
+
+          {/* Quick Info */}
+          <div className="mt-8 rounded-2xl bg-forest/5 border border-forest/20 p-5">
+            <div className="flex items-start gap-3">
+              <RouteIcon className="h-5 w-5 shrink-0 text-forest mt-0.5" />
+              <div className="text-sm text-foreground/80">
+                <span className="font-semibold text-pine">Important:</span> We are accessible by a scenic
+                1-2 km forest walk from Bustan. Part of the offbeat mountain experience!
+              </div>
+            </div>
           </div>
         </div>
 
@@ -930,9 +1109,9 @@ function Footer() {
             {[
               ["Home", "#home"],
               ["About", "#about"],
+              ["Location", "#location"],
               ["Rooms", "#rooms"],
               ["Yulla Trek", "#trek"],
-              ["Gallery", "#gallery"],
               ["Contact", "#contact"],
             ].map(([l, h]) => (
               <li key={l}>
