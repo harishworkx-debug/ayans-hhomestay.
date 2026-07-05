@@ -112,7 +112,7 @@ export const Route = createFileRoute("/")({
             postalCode: "172104",
             addressCountry: "IN",
           },
-          telephone: "+91 8920114710",
+          telephone: "+91 9805914020",
           priceRange: "₹800 per person (with meals)",
           amenityFeature: [
             { "@type": "LocationFeatureSpecification", name: "Yulla Kanda Trek Base Camp", value: true },
@@ -858,10 +858,10 @@ function CallToAction() {
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="tel:+918920114710"
+              href="tel:+919805914020"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/5 px-8 py-4 text-sm font-semibold text-snow backdrop-blur-md transition-all hover:bg-white/15"
             >
-              <Phone className="h-4 w-4" /> +91 89201 14710
+              <Phone className="h-4 w-4" /> +91 98059 14020
             </a>
           </div>
         </div>
@@ -902,15 +902,10 @@ function Contact() {
             <ContactRow
               icon={Phone}
               title="Phone"
-              lines={["+91 89201 14710"]}
-              href="tel:+918920114710"
-            />
-            <ContactRow
-              icon={Phone}
-              title="Alternative Contact"
               lines={["+91 98059 14020"]}
               href="tel:+919805914020"
             />
+    
             <ContactRow
               icon={MessageCircle}
               title="WhatsApp"
@@ -1058,14 +1053,12 @@ function Footer() {
             <li>Village Yulla Khas, Tehsil Nichar</li>
             <li>District Kinnaur, HP — 172104</li>
             <li>
-              <a href="tel:+918920114710" className="hover:text-snow">
-                +91 89201 14710
-              </a>
-            </li>
-            <li>
               <a href="tel:+919805914020" className="hover:text-snow">
                 +91 98059 14020
               </a>
+            </li>
+            <li>
+      
             </li>
           </ul>
         </div>
