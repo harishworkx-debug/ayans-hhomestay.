@@ -9,56 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TrekRouteImport } from './routes/trek'
-import { Route as RoomsRouteImport } from './routes/rooms'
-import { Route as KnowBeforeYouVisitRouteImport } from './routes/know-before-you-visit'
-import { Route as HowToReachRouteImport } from './routes/how-to-reach'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const TrekRoute = TrekRouteImport.update({
-  id: '/trek',
-  path: '/trek',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoomsRoute = RoomsRouteImport.update({
-  id: '/rooms',
-  path: '/rooms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KnowBeforeYouVisitRoute = KnowBeforeYouVisitRouteImport.update({
-  id: '/know-before-you-visit',
-  path: '/know-before-you-visit',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HowToReachRoute = HowToReachRouteImport.update({
-  id: '/how-to-reach',
-  path: '/how-to-reach',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -67,144 +19,28 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/gallery': typeof GalleryRoute
-  '/how-to-reach': typeof HowToReachRoute
-  '/know-before-you-visit': typeof KnowBeforeYouVisitRoute
-  '/rooms': typeof RoomsRoute
-  '/trek': typeof TrekRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/gallery': typeof GalleryRoute
-  '/how-to-reach': typeof HowToReachRoute
-  '/know-before-you-visit': typeof KnowBeforeYouVisitRoute
-  '/rooms': typeof RoomsRoute
-  '/trek': typeof TrekRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/gallery': typeof GalleryRoute
-  '/how-to-reach': typeof HowToReachRoute
-  '/know-before-you-visit': typeof KnowBeforeYouVisitRoute
-  '/rooms': typeof RoomsRoute
-  '/trek': typeof TrekRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/faq'
-    | '/gallery'
-    | '/how-to-reach'
-    | '/know-before-you-visit'
-    | '/rooms'
-    | '/trek'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/faq'
-    | '/gallery'
-    | '/how-to-reach'
-    | '/know-before-you-visit'
-    | '/rooms'
-    | '/trek'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/faq'
-    | '/gallery'
-    | '/how-to-reach'
-    | '/know-before-you-visit'
-    | '/rooms'
-    | '/trek'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ContactRoute: typeof ContactRoute
-  FaqRoute: typeof FaqRoute
-  GalleryRoute: typeof GalleryRoute
-  HowToReachRoute: typeof HowToReachRoute
-  KnowBeforeYouVisitRoute: typeof KnowBeforeYouVisitRoute
-  RoomsRoute: typeof RoomsRoute
-  TrekRoute: typeof TrekRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/trek': {
-      id: '/trek'
-      path: '/trek'
-      fullPath: '/trek'
-      preLoaderRoute: typeof TrekRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rooms': {
-      id: '/rooms'
-      path: '/rooms'
-      fullPath: '/rooms'
-      preLoaderRoute: typeof RoomsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/know-before-you-visit': {
-      id: '/know-before-you-visit'
-      path: '/know-before-you-visit'
-      fullPath: '/know-before-you-visit'
-      preLoaderRoute: typeof KnowBeforeYouVisitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-to-reach': {
-      id: '/how-to-reach'
-      path: '/how-to-reach'
-      fullPath: '/how-to-reach'
-      preLoaderRoute: typeof HowToReachRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -217,14 +53,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ContactRoute: ContactRoute,
-  FaqRoute: FaqRoute,
-  GalleryRoute: GalleryRoute,
-  HowToReachRoute: HowToReachRoute,
-  KnowBeforeYouVisitRoute: KnowBeforeYouVisitRoute,
-  RoomsRoute: RoomsRoute,
-  TrekRoute: TrekRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
