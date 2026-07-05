@@ -29,9 +29,6 @@ import {
   ChevronRight,
   Quote,
   Star,
-  Footprints,
-  Luggage,
-  Info,
 } from "lucide-react";
 
 import { Navbar } from "@/components/site/Navbar";
@@ -118,7 +115,6 @@ function HomePage() {
       <main>
         <Hero />
         <About />
-        <LocationAccess />
         <WhyChooseUs />
         <Rooms />
         <YullaTrek />
@@ -355,111 +351,6 @@ function WhyChooseUs() {
               <div className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-moss/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------ LOCATION ACCESS */
-
-function LocationAccess() {
-  return (
-    <section id="location" className="relative overflow-hidden bg-gradient-to-br from-forest/5 via-snow to-moss/5 py-24 md:py-32">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="reveal text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-forest/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-forest">
-            <MapPin className="h-4 w-4" /> Important — Please Read
-          </span>
-          <h2 className="mt-5 text-4xl font-semibold text-pine md:text-5xl">
-            How to Reach Us
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Your adventure begins before you even arrive. Our homestay is nestled in nature,
-            accessible only by foot — making the journey part of the experience.
-          </p>
-        </div>
-
-        <div className="reveal mt-12 rounded-3xl border-2 border-forest/20 bg-snow p-8 shadow-lift md:p-12">
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Left - The Walk */}
-            <div className="space-y-6">
-              <h3 className="flex items-center gap-3 text-xl font-semibold text-pine">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-forest text-snow">
-                  <Footprints className="h-5 w-5" />
-                </span>
-                The Scenic Forest Walk
-              </h3>
-              <div className="space-y-4 text-[15px] leading-relaxed text-foreground/80">
-                <p>
-                  Our homestay is located <strong className="text-forest">1-2 km from Bustan</strong> (the nearest road-head).
-                  After arriving at Bustan by vehicle, you'll walk through beautiful pine forests
-                  and traditional Kinnauri villages to reach us.
-                </p>
-                <p>
-                  This walk takes roughly <strong>30-45 minutes</strong> and is part of what makes
-                  our location special — you're truly away from the noise, deep in the mountains.
-                </p>
-                <div className="rounded-xl bg-cream p-4">
-                  <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 shrink-0 text-moss mt-0.5" />
-                    <p className="text-sm text-foreground/75">
-                      Wear comfortable walking shoes. The trail is moderately uphill but well-defined.
-                      It's suitable for all ages — just take your time and enjoy the scenery!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right - What We Offer */}
-            <div className="space-y-6">
-              <h3 className="flex items-center gap-3 text-xl font-semibold text-pine">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-warm-brown text-snow">
-                  <Luggage className="h-5 w-5" />
-                </span>
-                Luggage Support Available
-              </h3>
-              <div className="space-y-4">
-                <p className="text-[15px] leading-relaxed text-foreground/80">
-                  Don't want to carry your bags? We've got you covered:
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    { t: "Mule/Porter Service", d: "Available on request for luggage transport" },
-                    { t: "Local Guide Meeting", d: "We can arrange someone to meet you at Bustan" },
-                    { t: "Pick-up Instructions", d: "Detailed directions shared on booking" },
-                    { t: "Light Packing Tip", d: "Carry only essentials for the walk" },
-                  ].map((item) => (
-                    <li key={item.t} className="flex items-start gap-3">
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-forest" />
-                      <div>
-                        <span className="font-medium text-pine">{item.t}:</span>{" "}
-                        <span className="text-muted-foreground">{item.d}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Callout */}
-          <div className="mt-8 rounded-2xl bg-forest/10 border border-forest/20 p-6 text-center">
-            <p className="text-lg font-medium text-pine">
-              Come prepared for a mini-adventure — the walk to our homestay is just the beginning
-              of your mountain experience!
-            </p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-snow transition-all hover:bg-pine"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Ask Us About Directions
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -1109,9 +1000,9 @@ function Footer() {
             {[
               ["Home", "#home"],
               ["About", "#about"],
-              ["Location", "#location"],
               ["Rooms", "#rooms"],
               ["Yulla Trek", "#trek"],
+              ["Gallery", "#gallery"],
               ["Contact", "#contact"],
             ].map(([l, h]) => (
               <li key={l}>
