@@ -80,26 +80,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1f3a2c" },
       {
         title:
-          "Yulla Kanda Best Homestay — Ayansh Snow-View & Trekker's Nest, Kinnaur",
+          "Ayansh Snow-View & Trekker's Nest — Himalayan Homestay in Kinnaur",
       },
       {
         name: "description",
         content:
-          "Best homestay for Yulla Kanda Trek at 12,000 ft. Traditional Kinnauri wooden rooms ₹800/person with meals. Nearest base camp to world's highest Krishna temple. 1-2 km trek from Bustan, Kinnaur, Himachal Pradesh.",
-      },
-      {
-        name: "keywords",
-        content: "Yulla Kanda homestay, Yulla Kanda base camp, Kinnaur homestay, Yulla Khas, best homestay Yulla Kanda, Krishna temple 12000 ft, Kinnaur trek, Himachal homestay, Yulla Kanda trek",
+          "Authentic wooden Kinnauri homestay in Village Yulla Khas, Himachal Pradesh. Base camp for the Yulla Kanda Trek — home-cooked meals, mountain views and warm local hospitality.",
       },
       {
         property: "og:site_name",
-        content: "Ayansh Snow-View & Trekker's Nest — Yulla Kanda Base Camp",
+        content: "Ayansh Snow-View & Trekker's Nest",
       },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "geo.region", content: "IN-HP" },
-      { name: "geo.placename", content: "Kinnaur, Himachal Pradesh" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
