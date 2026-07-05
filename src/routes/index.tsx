@@ -35,6 +35,8 @@ import { Navbar } from "@/components/site/Navbar";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { useReveal } from "@/hooks/use-reveal";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import heroo from "../assets/heroo.png";
+import Aboutt from "../assets/about.png"
 
 import hero from "../assets/hero.jpg";
 import about from "../assets/about.jpg";
@@ -133,7 +135,7 @@ function Hero() {
     >
       <div className="absolute inset-0">
         <img
-          src={hero}
+          src={heroo}
           alt="Snow-capped Himalayan peaks and pine forest in Kinnaur"
           width={1920}
           height={1280}
@@ -223,7 +225,7 @@ function About() {
         <div className="reveal relative">
           <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-cream md:h-40 md:w-40" />
           <img
-            src={about}
+            src={Aboutt}
             alt="Traditional wooden Kinnauri architecture at Ayansh Snow-View"
             width={1200}
             height={1400}
