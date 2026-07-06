@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   MessageCircle,
@@ -11,116 +11,49 @@ import {
   Compass,
   Tent,
   Trees,
-  MapPin,
-  Phone,
-  Flame,
-  Sunrise,
-  Camera,
-  Church,
-  Flower2,
-  Route as RouteIcon,
-  Gauge,
-  Ruler,
   ArrowUpRight,
-  Instagram,
-  Facebook,
-  Youtube,
-  ChevronLeft,
-  ChevronRight,
+  Phone,
   Quote,
   Star,
+  ChevronLeft,
+  ChevronRight,
+  Route as RouteIcon,
+  MapPin,
+  Clock,
+  BookOpen,
 } from "lucide-react";
 
-import { Navbar } from "@/components/site/Navbar";
-import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { Layout } from "@/components/site/Layout";
 import { useReveal } from "@/hooks/use-reveal";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
-import heroo from "../assets/heroo.png";
-import Aboutt from "../assets/about.png"
-
-import hero from "../assets/hero.jpg";
-import about from "../assets/about.jpg";
-import room1 from "../assets/room1.jpg";
-import room2 from "../assets/room2.jpg";
-import room3 from "../assets/room3.jpg";
-import trek from "../assets/trek.jpg";
-import cta from "../assets/cta.jpg";
-import g1 from "../assets/g1.jpg";
-import g2 from "../assets/g2.jpg";
-import g3 from "../assets/g3.jpg";
-import g4 from "../assets/g4.jpg";
-import g5 from "../assets/g5.jpg";
-import g6 from "../assets/g6.jpg";
-import g7 from "../assets/g7.jpg";
-
-import moment from '@/assets/moments.jpg'
-import moment1 from '@/assets/moments1.jpg'
-import moment2 from '@/assets/moments2.jpg'
-import moment3 from '@/assets/moments3.jpg'
-import moment4 from '@/assets/moments4.jpg'
-import moment5 from '@/assets/moments5.jpg'
-import moment6 from '@/assets/moments6.jpg'
-import moment7 from '@/assets/moments7.jpg'
-import moment8 from '@/assets/moments8.jpg'
-import moment9 from '@/assets/moments9.jpg'
-import moment10 from '@/assets/moments10.jpg'
-import moment11 from '@/assets/moments11.jpg'
-import moment12 from '@/assets/moments12.jpg'
-
-
-
-
+import { SITE } from "@/lib/site";
+import {
+  buildMetaTags,
+  buildLinkTags,
+  localBusinessSchema,
+  reviewSchema,
+  breadcrumbSchema,
+  jsonLdScripts,
+} from "@/lib/seo";
+import { IMAGES, ROOMS, REVIEWS, EXPERIENCES, TREK_STATS, TREK_HIGHLIGHTS } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      {
-        title:
-          "Yulla Kanda Trek Homestay | Ayansh Snow-View — Best Stay Near Yulla Kanda (12,000 ft) Kinnaur",
-      },
-      {
-        name: "description",
-        content:
-          "Best homestay near Yulla Kanda Trek (12,000 ft). Authentic wooden homestay in Village Yulla Khas, Kinnaur. Your perfect base camp for the sacred Yulla Kanda pilgrimage. Rooms at Rs.800/person with meals. Scenic 1-2 km walk from Bustan through pine forests.",
-      },
-      {
-        property: "og:title",
-        content: "Best Homestay for Yulla Kanda Trek | Ayansh Snow-View — Kinnaur",
-      },
-      {
-        property: "og:description",
-        content:
-          "Plan your Yulla Kanda Trek with us! Closest homestay to the sacred 12,000 ft Krishna temple. Traditional Kinnauri stay with home-cooked meals at Rs.800/person. Adventure begins with a scenic walk from Bustan.",
-      },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LodgingBusiness",
-          name: "Ayansh Snow-View & Trekker's Nest",
-          description:
-            "Best homestay for Yulla Kanda Trek (12,000 ft). Traditional Kinnauri wooden homestay near Bustan. Scenic 1-2 km forest walk to reach us. Rs.800/person with dinner and breakfast.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Village & P.O. Yulla Khas, 1-2 km trek from Bustan",
-            addressLocality: "Kinnaur",
-            addressRegion: "Himachal Pradesh",
-            postalCode: "172104",
-            addressCountry: "IN",
-          },
-          telephone: "+91 9805914020",
-          priceRange: "₹800 per person (with meals)",
-          amenityFeature: [
-            { "@type": "LocationFeatureSpecification", name: "Yulla Kanda Trek Base Camp", value: true },
-            { "@type": "LocationFeatureSpecification", name: "Scenic Forest Walk Access", value: true },
-          ],
-        }),
-      },
-    ],
+    meta: buildMetaTags({
+      title:
+        "Yulla Kanda Trek Homestay | Ayansh Snow-View — Best Stay Near Yulla Kanda (12,000 ft) Kinnaur",
+      description: SITE.description,
+      path: "/",
+      image: "/assets/trek.jpg",
+      imageAlt:
+        "Snow-capped Himalayan peaks and pine forest at Ayansh Snow-View homestay in Kinnaur",
+    }),
+    links: buildLinkTags("/"),
+    scripts: jsonLdScripts(
+      localBusinessSchema(),
+      reviewSchema(),
+      breadcrumbSchema([{ name: "Home", to: "/" }]),
+    ),
   }),
   component: HomePage,
 });
@@ -128,56 +61,40 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   useReveal();
   return (
-    <div className="min-h-screen bg-snow text-foreground antialiased">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <WhyChooseUs />
-        <Rooms />
-        <YullaTrek />
-        <Experiences />
-        <Gallery />
-        <Testimonials />
-        <CallToAction />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+    <Layout>
+      <Hero />
+      <QuickLinks />
+      <About />
+      <WhyChooseUs />
+      <Rooms />
+      <YullaTrek />
+      <Experiences />
+      <Testimonials />
+      <CallToAction />
+    </Layout>
   );
 }
 
-/* -------------------------------------------------------------- HERO */
-
 function Hero() {
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen items-center overflow-hidden"
-    >
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src={heroo}
-          alt="Snow-capped Himalayan peaks and pine forest in Kinnaur"
+          src={IMAGES.heroo}
+          alt="Snow-capped Himalayan peaks and pine forest in Kinnaur near Yulla Kanda"
           width={1920}
           height={1280}
           className="h-full w-full object-cover animate-slow-zoom"
           fetchPriority="high"
         />
-        <div
-          className="absolute inset-0"
-          style={{ background: "var(--gradient-hero)" }}
-        />
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       </div>
 
-      {/* drifting clouds */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-0 top-[18%] h-40 w-[40%] rounded-full bg-white/15 blur-3xl animate-drift-slower" />
         <div className="absolute left-0 top-[42%] h-24 w-[30%] rounded-full bg-white/10 blur-3xl animate-drift-slow" />
       </div>
 
-      {/* subtle particles */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         {Array.from({ length: 14 }).map((_, i) => (
           <span
@@ -215,16 +132,15 @@ function Hero() {
             Book on WhatsApp
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-          <a
-            href="#trek"
+          <Link
+            to="/yulla-kanda-trek"
             className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-3.5 text-sm font-semibold text-snow backdrop-blur-md transition-all hover:bg-white/15"
           >
             Explore the Trek
-          </a>
+          </Link>
         </div>
       </div>
 
-      {/* scroll indicator */}
       <a
         href="#about"
         aria-label="Scroll down"
@@ -239,7 +155,35 @@ function Hero() {
   );
 }
 
-/* ------------------------------------------------------------- ABOUT */
+function QuickLinks() {
+  const links = [
+    { icon: Mountain, label: "Trek Guide", desc: "Trail, difficulty & packing", to: "/yulla-kanda-trek" },
+    { icon: Bed, label: "Rooms & Pricing", desc: "Rs.800/person with meals", to: "/rooms" },
+    { icon: MapPin, label: "How to Reach", desc: "Routes & the forest walk", to: "/how-to-reach" },
+    { icon: BookOpen, label: "Know Before You Go", desc: "Seasons, permits & tips", to: "/know-before-you-visit" },
+  ];
+  return (
+    <section className="border-b border-border/40 bg-cream/30 py-6 md:py-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-6 md:grid-cols-4 md:gap-5">
+        {links.map((l) => (
+          <Link
+            key={l.to}
+            to={l.to}
+            className="group flex items-center gap-3 rounded-2xl border border-border/50 bg-snow p-4 transition-all hover:-translate-y-0.5 hover:shadow-soft"
+          >
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-forest/10 text-forest transition-colors group-hover:bg-forest group-hover:text-snow">
+              <l.icon className="h-5 w-5" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold text-pine">{l.label}</span>
+              <span className="block truncate text-xs text-muted-foreground">{l.desc}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function About() {
   return (
@@ -248,8 +192,8 @@ function About() {
         <div className="reveal relative">
           <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-cream md:h-40 md:w-40" />
           <img
-            src={Aboutt}
-            alt="Traditional wooden Kinnauri architecture at Ayansh Snow-View"
+            src={IMAGES.about}
+            alt="Traditional wooden Kinnauri architecture at Ayansh Snow-View homestay"
             width={1200}
             height={1400}
             loading="lazy"
@@ -257,9 +201,7 @@ function About() {
           />
           <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-forest px-6 py-5 text-snow shadow-lift md:block">
             <div className="text-3xl font-semibold">12,000 ft</div>
-            <div className="text-xs uppercase tracking-widest opacity-80">
-              Yulla Kanda Summit
-            </div>
+            <div className="text-xs uppercase tracking-widest opacity-80">Yulla Kanda Summit</div>
           </div>
         </div>
 
@@ -270,31 +212,27 @@ function About() {
           <h2 className="mt-3 text-4xl font-semibold leading-tight text-pine md:text-5xl">
             A quiet corner of Kinnaur, built in wood and warmth.
           </h2>
-          <div className="mt-8 space-y-5 text-[15.5px] leading-[1.85] text-foreground/75">
-            <p>
-              <span className="font-semibold text-pine">
-                Ayansh Snow-View & Trekker's Nest
-              </span>{" "}
-              is an offbeat homestay situated in Village Yulla Khas, deep in
-              the mountains of Kinnaur. Built entirely in the traditional
-              wooden Kinnauri style, our home has stood quietly amidst pine
-              forests and snow peaks for generations.
-            </p>
-            <p>
-              We offer peaceful accommodation, delicious home-cooked meals and
-              breathtaking Himalayan views — and we serve as the starting
-              point for the famous Yulla Kanda Trek, home to the highest
-              Krishna temple in the world.
-            </p>
-          </div>
+          <p className="mt-8 text-[15.5px] leading-[1.85] text-foreground/75">
+            <span className="font-semibold text-pine">{SITE.name}</span> is an offbeat homestay
+            situated in Village Yulla Khas, deep in the mountains of Kinnaur. Built entirely in the
+            traditional wooden Kinnauri style, our home has stood quietly amidst pine forests and
+            snow peaks for generations.
+          </p>
+          <p className="mt-4 text-[15.5px] leading-[1.85] text-foreground/75">
+            We serve as the starting point for the famous Yulla Kanda Trek, home to the highest
+            Krishna temple in the world.
+          </p>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
+          <div className="mt-8 grid grid-cols-3 gap-4">
             {[
               { n: "12+", l: "Years hosting" },
               { n: "12,000 ft", l: "Yulla Kanda" },
               { n: "Rs.800", l: "Per person/night" },
             ].map((s) => (
-              <div key={s.l} className="rounded-2xl border border-border/70 bg-cream/40 p-4 text-center">
+              <div
+                key={s.l}
+                className="rounded-2xl border border-border/70 bg-cream/40 p-4 text-center"
+              >
                 <div className="text-2xl font-semibold text-forest">{s.n}</div>
                 <div className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">
                   {s.l}
@@ -303,31 +241,18 @@ function About() {
             ))}
           </div>
 
-          {/* Important Access Info */}
-          <div className="mt-8 rounded-2xl border-2 border-moss/30 bg-moss/5 p-6">
-            <div className="flex items-start gap-3">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-forest text-snow">
-                <RouteIcon className="h-5 w-5" />
-              </span>
-              <div>
-                <h3 className="font-semibold text-pine">Adventure Begins with a Forest Walk</h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
-                  Our homestay is located <strong>1-2 km from Bustan</strong> via a scenic trek
-                  through pine forests. This beautiful walk is part of the experience —
-                  arrive prepared for a short adventure and immerse yourself in nature
-                  from the moment you step off the road. Porters and mule support available
-                  for luggage on request.
-                </p>
-              </div>
-            </div>
-          </div>
+          <Link
+            to="/about"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-forest transition-colors hover:text-pine"
+          >
+            Read our full story
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
   );
 }
-
-/* --------------------------------------------------------- WHY CHOOSE */
 
 const WHY = [
   { icon: Bed, t: "Comfortable Wooden Rooms", d: "Cozy rooms clad in warm pine with hand-woven blankets." },
@@ -363,10 +288,7 @@ function WhyChooseUs() {
                 <w.icon className="h-5 w-5" />
               </div>
               <h3 className="text-lg font-semibold text-pine">{w.t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {w.d}
-              </p>
-              <div className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-moss/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.d}</p>
             </div>
           ))}
         </div>
@@ -374,29 +296,6 @@ function WhyChooseUs() {
     </section>
   );
 }
-
-/* -------------------------------------------------------------- ROOMS */
-
-const ROOMS = [
-  {
-    img: room1,
-    name: "Pine Deluxe Room",
-    desc: "A snug wooden room with a queen bed and a window framing snow peaks.",
-    features: ["Wooden Interior", "Mountain View", "Cozy Bedding"],
-  },
-  {
-    img: room2,
-    name: "Cedar Twin Room",
-    desc: "Twin beds in a log-lined cabin — warm lamps, wool blankets and pine air.",
-    features: ["Traditional Log Walls", "Twin Beds", "Reading Lamp"],
-  },
-  {
-    img: room3,
-    name: "Snow-View Family Suite",
-    desc: "A spacious suite with panoramic windows and a private sitting nook.",
-    features: ["Panoramic Windows", "Family Bedding", "Sitting Area"],
-  },
-];
 
 function Rooms() {
   return (
@@ -413,36 +312,11 @@ function Rooms() {
           </div>
           <div className="flex flex-col items-start gap-3 md:items-end">
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Each room is finished in local Kinnauri pine and set to open onto
-              the valley — quiet, warm and honest.
+              Each room is finished in local Kinnauri pine and set to open onto the valley.
             </p>
             <div className="flex items-center gap-2 rounded-full bg-forest/10 px-4 py-2 text-sm font-semibold text-forest">
               <Bed className="h-4 w-4" />
               Rs.800 per person/night (with dinner & breakfast)
-            </div>
-          </div>
-        </div>
-
-        {/* Pricing Card */}
-        <div className="reveal mt-8 rounded-2xl border-2 border-forest/20 bg-gradient-to-r from-forest/5 to-moss/5 p-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-start gap-4">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-forest text-snow">
-                <UtensilsCrossed className="h-5 w-5" />
-              </span>
-              <div>
-                <h3 className="font-semibold text-pine">All-Inclusive Pricing</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  <strong className="text-forest">Rs.800 per person per night</strong> includes
-                  comfortable stay, traditional dinner, and hot breakfast. No hidden charges.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 text-sm">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-forest">Rs.800</div>
-                <div className="text-xs text-muted-foreground">Per Person/Night</div>
-              </div>
             </div>
           </div>
         </div>
@@ -456,7 +330,7 @@ function Rooms() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={r.img}
-                  alt={r.name}
+                  alt={r.alt}
                   width={1280}
                   height={960}
                   loading="lazy"
@@ -469,9 +343,7 @@ function Rooms() {
               </div>
               <div className="p-7">
                 <h3 className="text-xl font-semibold text-pine">{r.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {r.desc}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {r.features.map((f) => (
                     <li
@@ -494,28 +366,20 @@ function Rooms() {
             </article>
           ))}
         </div>
+
+        <div className="reveal mt-10 text-center">
+          <Link
+            to="/rooms"
+            className="inline-flex items-center gap-2 rounded-full border border-forest/30 px-6 py-3 text-sm font-semibold text-forest transition-all hover:bg-forest hover:text-snow"
+          >
+            View all rooms & pricing details
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
-
-/* --------------------------------------------------------- YULLA TREK */
-
-const TREK_STEPS = [
-  { icon: MapPin, label: "Starting Point", value: "Yulla Village" },
-  { icon: Ruler, label: "Distance", value: "12 KM Trek" },
-  { icon: Gauge, label: "Difficulty", value: "Moderate" },
-  { icon: Mountain, label: "Highest Point", value: "12,000 ft (3,900 m)" },
-];
-
-const TREK_HIGHLIGHTS = [
-  { icon: Church, t: "World's Highest Krishna Temple" },
-  { icon: Trees, t: "Dense Oak & Pine Forest" },
-  { icon: Flower2, t: "Alpine Meadows in Bloom" },
-  { icon: Sunrise, t: "Sunrise Above the Clouds" },
-  { icon: RouteIcon, t: "Sacred Lake at the Summit" },
-  { icon: Flame, t: "Janmashtami Festival Camp" },
-];
 
 function YullaTrek() {
   return (
@@ -537,17 +401,16 @@ function YullaTrek() {
             The Yulla Kanda Trek — 12,000 ft
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-            A sacred pilgrimage through oak forests, alpine meadows and prayer flags
-            to the world's highest Krishna temple at 12,000 feet — your spiritual
-            adventure awaits.
+            A sacred pilgrimage through oak forests, alpine meadows and prayer flags to the world's
+            highest Krishna temple at 12,000 feet.
           </p>
         </div>
 
         <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="reveal relative">
             <img
-              src={trek}
-              alt="Hikers on the Yulla Kanda trail with snow peaks behind"
+              src={IMAGES.trek}
+              alt="Hikers on the Yulla Kanda trekking trail with snow-capped peaks behind them"
               width={1600}
               height={1200}
               loading="lazy"
@@ -562,60 +425,39 @@ function YullaTrek() {
           </div>
 
           <div className="reveal">
-            {/* Timeline */}
-            <ol className="relative border-l-2 border-dashed border-forest/30 pl-8">
-              {TREK_STEPS.map((s, i) => (
-                <li key={s.label} className="mb-8 last:mb-0">
-                  <span className="absolute -left-[13px] grid h-6 w-6 place-items-center rounded-full bg-forest text-snow shadow-soft">
-                    <s.icon className="h-3 w-3" />
-                  </span>
+            <div className="grid grid-cols-2 gap-4">
+              {TREK_STATS.map((s) => (
+                <div key={s.label} className="rounded-2xl border border-border/60 bg-snow p-5">
                   <div className="text-[11px] font-semibold uppercase tracking-widest text-moss">
-                    Step {String(i + 1).padStart(2, "0")} — {s.label}
+                    {s.label}
                   </div>
-                  <div className="mt-1 text-lg font-semibold text-pine">
-                    {s.value}
-                  </div>
+                  <div className="mt-1 text-lg font-semibold text-pine">{s.value}</div>
+                </div>
+              ))}
+            </div>
+            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {TREK_HIGHLIGHTS.map((h) => (
+                <li key={h} className="flex items-center gap-2 text-sm font-medium text-pine">
+                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-forest/10 text-forest">
+                    <Mountain className="h-3 w-3" />
+                  </span>
+                  {h}
                 </li>
               ))}
-            </ol>
-          </div>
-        </div>
-
-        {/* Highlights */}
-        <div className="reveal mt-20">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-warm-brown">
-            Trail highlights
-          </h3>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {TREK_HIGHLIGHTS.map((h) => (
-              <div
-                key={h.t}
-                className="flex items-center gap-4 rounded-2xl border border-border/60 bg-snow p-5 transition-all hover:-translate-y-1 hover:shadow-soft"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-forest/10 text-forest">
-                  <h.icon className="h-5 w-5" />
-                </span>
-                <span className="text-[15px] font-medium text-pine">{h.t}</span>
-              </div>
-            ))}
+            </ul>
+            <Link
+              to="/yulla-kanda-trek"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-snow transition-all hover:bg-pine"
+            >
+              Read the complete trek guide
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-/* ------------------------------------------------------- EXPERIENCES */
-
-const EXP = [
-  { img: g1, t: "Traditional Village Life", d: "Woven caps, stone paths and centuries-old rhythms." },
-  { img: g2, t: "Bonfire Nights", d: "Stories, songs and warmth under a starlit sky." },
-  { img: g3, t: "Mountain Sunrise", d: "Golden alpenglow on the Kinnaur Kailash range." },
-  { img: g4, t: "Alpine Camping", d: "Meadow campsites surrounded by wildflowers." },
-  { img: g7, t: "Nature Walks", d: "Forest trails through moss, pine and birdsong." },
-  { img: g6, t: "Snow Peaks & Prayer Flags", d: "Sacred summits and fluttering colours in the wind." },
-  
-];
 
 function Experiences() {
   return (
@@ -631,14 +473,14 @@ function Experiences() {
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {EXP.map((e) => (
+          {EXPERIENCES.map((e) => (
             <article
               key={e.t}
               className="reveal group relative overflow-hidden rounded-3xl shadow-soft"
             >
               <img
                 src={e.img}
-                alt={e.t}
+                alt={e.alt}
                 width={1000}
                 height={900}
                 loading="lazy"
@@ -652,91 +494,20 @@ function Experiences() {
             </article>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
 
-/* ------------------------------------------------------------ GALLERY */
-
-const GALLERY = [
-  { src: g3, alt: "Sunrise over Himalayan peaks", h: "row-span-2" },
-  { src: g1, alt: "Kinnauri village elder", h: "" },
-  { src: g4, alt: "Alpine camping under snow peaks", h: "" },
-  { src: g6, alt: "Sacred temples with prayer flags", h: "row-span-2" },
-  { src: g2, alt: "Bonfire under starlit sky", h: "" },
-  { src: g7, alt: "Sunlit pine forest trail", h: "" },
-  { src: g5, alt: "Traditional Himachali home-cooked meal", h: "" },
-  { src: about, alt: "Wooden Kinnauri homestay", h: "row-span-2" },
-    { src: moment, alt: "Ayansh Snow-View exterior", h: "row-span-2" },
-  { src: moment1, alt: "Traditional Kinnauri village", h: "" },
-  { src: moment2, alt: "Sunrise over Himalayan peaks", h: "" },
-  { src: moment3, alt: "Mountain trekking trail", h: "row-span-2" },
-  { src: moment4, alt: "Bonfire under the stars", h: "" },
-  { src: moment5, alt: "Snow-covered mountain views", h: "" },
-  { src: moment6, alt: "Peaceful pine forest walk", h: "row-span-2" },
-  { src: moment7, alt: "Traditional wooden homestay", h: "" },
-  { src: moment8, alt: "Camping in alpine meadows", h: "" },
-  { src: moment9, alt: "Prayer flags in the mountains", h: "row-span-2" },
-  { src: moment10, alt: "Local Himachali cuisine", h: "" },
-  { src: moment11, alt: "Scenic valley landscape", h: "" },
-  { src: moment12, alt: "Memorable moments at Ayansh Snow-View", h: "row-span-2" },
-
-];
-
-function Gallery() {
-  return (
-    <section id="gallery" className="py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="reveal mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-moss">
-            Gallery
-          </span>
-          <h2 className="mt-3 text-4xl font-semibold text-pine md:text-5xl">
-            Moments from the mountain.
-          </h2>
-        </div>
-
-        <div className="reveal mt-14 grid auto-rows-[180px] grid-cols-2 gap-4 sm:auto-rows-[220px] md:grid-cols-4">
-          {GALLERY.map((g, i) => (
-            <div
-              key={i}
-              className={`group relative overflow-hidden rounded-2xl ${g.h}`}
-            >
-              <img
-                src={g.src}
-                alt={g.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            </div>
-          ))}
+        <div className="reveal mt-10 text-center">
+          <Link
+            to="/gallery"
+            className="inline-flex items-center gap-2 rounded-full border border-forest/30 px-6 py-3 text-sm font-semibold text-forest transition-all hover:bg-forest hover:text-snow"
+          >
+            View the full gallery
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
   );
 }
-
-/* ------------------------------------------------------ TESTIMONIALS */
-
-const REVIEWS = [
-  {
-    n: "Aditi & Rohan",
-    r: "Delhi · Trekkers",
-    q: "The most peaceful days of our year. Woke up to snow peaks and slept to the smell of pine. The Yulla Kanda trek was unforgettable.",
-  },
-  {
-    n: "The Menon Family",
-    r: "Bengaluru · Family Travellers",
-    q: "Warm rooms, warmer people. Our children still talk about the bonfire evenings and grandma's rajma-chawal.",
-  },
-  {
-    n: "Kabir Sharma",
-    r: "Mumbai · Solo Photographer",
-    q: "An offbeat gem. Ayansh ji arranged the guide, the tents and even a Janmashtami invite at the temple. Ten stars.",
-  },
-];
 
 function Testimonials() {
   const [i, setI] = useState(0);
@@ -763,14 +534,12 @@ function Testimonials() {
         <span className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-soft">
           Guest stories
         </span>
-        <h2 className="mt-3 text-3xl font-semibold md:text-5xl">
-          Loved by mountain lovers.
-        </h2>
+        <h2 className="mt-3 text-3xl font-semibold md:text-5xl">Loved by mountain lovers.</h2>
 
         <div className="reveal mx-auto mt-12 max-w-2xl rounded-3xl glass-dark p-8 md:p-12">
           <Quote className="mx-auto h-8 w-8 text-sky-soft/80" />
           <p className="mt-5 text-balance text-lg font-light leading-relaxed text-snow/95 md:text-xl">
-            "{r.q}"
+            &ldquo;{r.q}&rdquo;
           </p>
           <div className="mt-6 flex items-center justify-center gap-1 text-sky-soft">
             {Array.from({ length: 5 }).map((_, k) => (
@@ -779,9 +548,7 @@ function Testimonials() {
           </div>
           <div className="mt-4">
             <div className="font-semibold">{r.n}</div>
-            <div className="text-xs uppercase tracking-widest opacity-70">
-              {r.r}
-            </div>
+            <div className="text-xs uppercase tracking-widest opacity-70">{r.r}</div>
           </div>
         </div>
 
@@ -818,15 +585,13 @@ function Testimonials() {
   );
 }
 
-/* ------------------------------------------------------------ CTA */
-
 function CallToAction() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src={cta}
-          alt="Snow peaks at twilight"
+          src={IMAGES.cta}
+          alt="Snow peaks at twilight near Yulla Kanda in Kinnaur"
           width={1920}
           height={1080}
           loading="lazy"
@@ -843,8 +608,8 @@ function CallToAction() {
             Ready for your Himalayan adventure?
           </h2>
           <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-snow/85">
-            Book your stay today and experience the quiet beauty of Kinnaur —
-            wooden rooms, warm meals, snow peaks and the trail to Yulla Kanda.
+            Book your stay today and experience the quiet beauty of Kinnaur — wooden rooms, warm
+            meals, snow peaks and the trail to Yulla Kanda.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -858,219 +623,14 @@ function CallToAction() {
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="tel:+919805914020"
+              href={`tel:${SITE.phoneRaw}`}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/5 px-8 py-4 text-sm font-semibold text-snow backdrop-blur-md transition-all hover:bg-white/15"
             >
-              <Phone className="h-4 w-4" /> +91 98059 14020
+              <Phone className="h-4 w-4" /> {SITE.phone}
             </a>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-/* -------------------------------------------------------- CONTACT */
-
-function Contact() {
-  return (
-    <section id="contact" className="py-24 md:py-32">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-start">
-        <div className="reveal">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-moss">
-            Contact
-          </span>
-          <h2 className="mt-3 text-4xl font-semibold text-pine md:text-5xl">
-            Come and stay with us.
-          </h2>
-          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            Reach out on WhatsApp or give us a call — we'll help you plan
-            travel, meals and the trek.
-          </p>
-
-          <div className="mt-10 space-y-5">
-            <ContactRow
-              icon={MapPin}
-              title="Ayansh Snow-View & Trekker's Nest"
-              lines={[
-                "Village & Post Office Yulla Khas",
-                "1-2 km trek from Bustan (road-head)",
-                "Tehsil Nichar, District Kinnaur",
-                "Himachal Pradesh — 172104",
-              ]}
-            />
-            <ContactRow
-              icon={Phone}
-              title="Phone"
-              lines={["+91 98059 14020"]}
-              href="tel:+919805914020"
-            />
-    
-            <ContactRow
-              icon={MessageCircle}
-              title="WhatsApp"
-              lines={["Chat with us for instant booking"]}
-              href={WHATSAPP_URL}
-              external
-            />
-          </div>
-
-          {/* Quick Info */}
-          <div className="mt-8 rounded-2xl bg-forest/5 border border-forest/20 p-5">
-            <div className="flex items-start gap-3">
-              <RouteIcon className="h-5 w-5 shrink-0 text-forest mt-0.5" />
-              <div className="text-sm text-foreground/80">
-                <span className="font-semibold text-pine">Important:</span> We are accessible by a scenic
-                1-2 km forest walk from Bustan. Part of the offbeat mountain experience!
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="reveal overflow-hidden rounded-3xl border border-border/60 shadow-lift">
-        <iframe
-  title="Ayansh Snow-View location on Google Maps"
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.2544064981726!2d78.13419429999999!3d31.544632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39066f0055c47e75%3A0x82deabc18c16b252!2s%22Ayansh%20Snow-View%20%26%20Trekker%27s%20Nest%20(Yulla%20Kanda)%22!5e0!3m2!1sen!2sin!4v1783249247301!5m2!1sen!2sin"
-  width="100%"
-  height="560"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="strict-origin-when-cross-origin"
-  className="block h-[420px] w-full border-0 md:h-[560px]"
-/>
-          
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ContactRow({
-  icon: Icon,
-  title,
-  lines,
-  href,
-  external,
-}: {
-  icon: typeof MapPin;
-  title: string;
-  lines: string[];
-  href?: string;
-  external?: boolean;
-}) {
-  const content = (
-    <div className="flex items-start gap-4 rounded-2xl border border-border/60 bg-cream/40 p-5 transition-all hover:-translate-y-0.5 hover:bg-cream hover:shadow-soft">
-      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-forest text-snow">
-        <Icon className="h-5 w-5" />
-      </span>
-      <div className="min-w-0">
-        <div className="text-[11px] font-semibold uppercase tracking-widest text-moss">
-          {title}
-        </div>
-        {lines.map((l) => (
-          <div key={l} className="mt-1 text-[15px] leading-snug text-pine">
-            {l}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-  return href ? (
-    <a
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      className="block"
-    >
-      {content}
-    </a>
-  ) : (
-    content
-  );
-}
-
-/* -------------------------------------------------------------- FOOTER */
-
-function Footer() {
-  return (
-    <footer className="bg-pine text-snow/85">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <div className="flex items-center gap-2 text-snow">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-snow text-pine text-sm font-bold">
-              A
-            </span>
-            <span className="text-[15px] font-semibold">
-              Ayansh Snow-View & Trekker's Nest
-            </span>
-          </div>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-snow/70">
-            A traditional Kinnauri wooden homestay in Village Yulla Khas — the
-            starting point of the sacred Yulla Kanda Trek.
-          </p>
-          <div className="mt-6 flex gap-3">
-            {[Instagram, Facebook, Youtube].map((I, k) => (
-              <a
-                key={k}
-                href="#"
-                aria-label="Social link"
-                className="grid h-10 w-10 place-items-center rounded-full border border-snow/20 text-snow transition-colors hover:bg-snow hover:text-pine"
-              >
-                <I className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-widest text-snow">
-            Quick Links
-          </h4>
-          <ul className="mt-5 space-y-2 text-sm">
-            {[
-              ["Home", "#home"],
-              ["About", "#about"],
-              ["Rooms", "#rooms"],
-              ["Yulla Trek", "#trek"],
-              ["Gallery", "#gallery"],
-              ["Contact", "#contact"],
-            ].map(([l, h]) => (
-              <li key={l}>
-                <a href={h} className="transition-colors hover:text-snow">
-                  {l}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-widest text-snow">
-            Contact
-          </h4>
-          <ul className="mt-5 space-y-2 text-sm text-snow/75">
-            <li>Village Yulla Khas, Tehsil Nichar</li>
-            <li>District Kinnaur, HP — 172104</li>
-            <li>
-              <a href="tel:+919805914020" className="hover:text-snow">
-                +91 98059 14020
-              </a>
-            </li>
-            <li>
-      
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-snow/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-snow/60 md:flex-row">
-          <div>
-            © 2026 Ayansh Snow-View & Trekker's Nest. All Rights Reserved.
-          </div>
-          <div>Handcrafted in the Himalayas.</div>
-        </div>
-      </div>
-    </footer>
   );
 }
