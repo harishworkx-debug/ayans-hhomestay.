@@ -9,301 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as YullaKandaTrekRouteImport } from './routes/yulla-kanda-trek'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as SitemapRouteImport } from './routes/sitemap'
-import { Route as RoomsRouteImport } from './routes/rooms'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as KnowBeforeYouVisitRouteImport } from './routes/know-before-you-visit'
-import { Route as HowToReachRouteImport } from './routes/how-to-reach'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
-import { Route as BlogCategoryCategoryRouteImport } from './routes/blog/category/$category'
 
-const YullaKandaTrekRoute = YullaKandaTrekRouteImport.update({
-  id: '/yulla-kanda-trek',
-  path: '/yulla-kanda-trek',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapRoute = SitemapRouteImport.update({
-  id: '/sitemap',
-  path: '/sitemap',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoomsRoute = RoomsRouteImport.update({
-  id: '/rooms',
-  path: '/rooms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KnowBeforeYouVisitRoute = KnowBeforeYouVisitRouteImport.update({
-  id: '/know-before-you-visit',
-  path: '/know-before-you-visit',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HowToReachRoute = HowToReachRouteImport.update({
-  id: '/how-to-reach',
-  path: '/how-to-reach',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogCategoryCategoryRoute = BlogCategoryCategoryRouteImport.update({
-  id: '/blog/category/$category',
-  path: '/blog/category/$category',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/gallery': typeof GalleryRoute
-  '/how-to-reach': typeof HowToReachRoute
-  '/know-before-you-visit': typeof KnowBeforeYouVisitRoute
-  '/privacy-policy': typeof PrivacyPolicyRoute
-  '/rooms': typeof RoomsRoute
-  '/sitemap': typeof SitemapRoute
-  '/terms': typeof TermsRoute
-  '/yulla-kanda-trek': typeof YullaKandaTrekRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog/': typeof BlogIndexRoute
-  '/blog/category/$category': typeof BlogCategoryCategoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/gallery': typeof GalleryRoute
-  '/how-to-reach': typeof HowToReachRoute
-  '/know-before-you-visit': typeof KnowBeforeYouVisitRoute
-  '/privacy-policy': typeof PrivacyPolicyRoute
-  '/rooms': typeof RoomsRoute
-  '/sitemap': typeof SitemapRoute
-  '/terms': typeof TermsRoute
-  '/yulla-kanda-trek': typeof YullaKandaTrekRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog': typeof BlogIndexRoute
-  '/blog/category/$category': typeof BlogCategoryCategoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/gallery': typeof GalleryRoute
-  '/how-to-reach': typeof HowToReachRoute
-  '/know-before-you-visit': typeof KnowBeforeYouVisitRoute
-  '/privacy-policy': typeof PrivacyPolicyRoute
-  '/rooms': typeof RoomsRoute
-  '/sitemap': typeof SitemapRoute
-  '/terms': typeof TermsRoute
-  '/yulla-kanda-trek': typeof YullaKandaTrekRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog/': typeof BlogIndexRoute
-  '/blog/category/$category': typeof BlogCategoryCategoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/faq'
-    | '/gallery'
-    | '/how-to-reach'
-    | '/know-before-you-visit'
-    | '/privacy-policy'
-    | '/rooms'
-    | '/sitemap'
-    | '/terms'
-    | '/yulla-kanda-trek'
-    | '/blog/$slug'
-    | '/blog/'
-    | '/blog/category/$category'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/faq'
-    | '/gallery'
-    | '/how-to-reach'
-    | '/know-before-you-visit'
-    | '/privacy-policy'
-    | '/rooms'
-    | '/sitemap'
-    | '/terms'
-    | '/yulla-kanda-trek'
-    | '/blog/$slug'
-    | '/blog'
-    | '/blog/category/$category'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/faq'
-    | '/gallery'
-    | '/how-to-reach'
-    | '/know-before-you-visit'
-    | '/privacy-policy'
-    | '/rooms'
-    | '/sitemap'
-    | '/terms'
-    | '/yulla-kanda-trek'
-    | '/blog/$slug'
-    | '/blog/'
-    | '/blog/category/$category'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ContactRoute: typeof ContactRoute
-  FaqRoute: typeof FaqRoute
-  GalleryRoute: typeof GalleryRoute
-  HowToReachRoute: typeof HowToReachRoute
-  KnowBeforeYouVisitRoute: typeof KnowBeforeYouVisitRoute
-  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  RoomsRoute: typeof RoomsRoute
-  SitemapRoute: typeof SitemapRoute
-  TermsRoute: typeof TermsRoute
-  YullaKandaTrekRoute: typeof YullaKandaTrekRoute
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogIndexRoute: typeof BlogIndexRoute
-  BlogCategoryCategoryRoute: typeof BlogCategoryCategoryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/yulla-kanda-trek': {
-      id: '/yulla-kanda-trek'
-      path: '/yulla-kanda-trek'
-      fullPath: '/yulla-kanda-trek'
-      preLoaderRoute: typeof YullaKandaTrekRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap': {
-      id: '/sitemap'
-      path: '/sitemap'
-      fullPath: '/sitemap'
-      preLoaderRoute: typeof SitemapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rooms': {
-      id: '/rooms'
-      path: '/rooms'
-      fullPath: '/rooms'
-      preLoaderRoute: typeof RoomsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/know-before-you-visit': {
-      id: '/know-before-you-visit'
-      path: '/know-before-you-visit'
-      fullPath: '/know-before-you-visit'
-      preLoaderRoute: typeof KnowBeforeYouVisitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-to-reach': {
-      id: '/how-to-reach'
-      path: '/how-to-reach'
-      fullPath: '/how-to-reach'
-      preLoaderRoute: typeof HowToReachRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -311,46 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/category/$category': {
-      id: '/blog/category/$category'
-      path: '/blog/category/$category'
-      fullPath: '/blog/category/$category'
-      preLoaderRoute: typeof BlogCategoryCategoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ContactRoute: ContactRoute,
-  FaqRoute: FaqRoute,
-  GalleryRoute: GalleryRoute,
-  HowToReachRoute: HowToReachRoute,
-  KnowBeforeYouVisitRoute: KnowBeforeYouVisitRoute,
-  PrivacyPolicyRoute: PrivacyPolicyRoute,
-  RoomsRoute: RoomsRoute,
-  SitemapRoute: SitemapRoute,
-  TermsRoute: TermsRoute,
-  YullaKandaTrekRoute: YullaKandaTrekRoute,
-  BlogSlugRoute: BlogSlugRoute,
-  BlogIndexRoute: BlogIndexRoute,
-  BlogCategoryCategoryRoute: BlogCategoryCategoryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
