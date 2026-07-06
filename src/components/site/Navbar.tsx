@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "@tanstack/react-router";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Rooms", href: "#rooms" },
-  { label: "Yulla Trek", href: "#trek" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/home" },
+  { label: "About", href: "/about" },
+  { label: "Rooms", href: "/rooms" },
+  { label: "Yulla Trek", href: "/trek" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/" || location.pathname === "/home";
+  const showDarkNav = scrolled || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -25,16 +29,16 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
+        showDarkNav
           ? "bg-snow/90 backdrop-blur-lg shadow-[0_4px_24px_-12px_rgba(0,0,0,0.15)]"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8 md:py-5">
         <a
-          href="#home"
+          href="/home"
           className={`flex items-center gap-2 font-semibold tracking-tight transition-colors ${
-            scrolled ? "text-pine" : "text-snow"
+            showDarkNav ? "text-pine" : "text-snow"
           }`}
         >
           <span className="grid h-9 w-9 place-items-center rounded-full bg-forest text-snow text-sm font-bold">
@@ -54,7 +58,7 @@ export function Navbar() {
               key={n.href}
               href={n.href}
               className={`text-sm font-medium transition-colors hover:text-moss ${
-                scrolled ? "text-pine" : "text-snow/90"
+                showDarkNav ? "text-pine" : "text-snow/90"
               }`}
             >
               {n.label}
@@ -75,7 +79,7 @@ export function Navbar() {
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
           className={`grid h-10 w-10 place-items-center rounded-full transition-colors lg:hidden ${
-            scrolled
+            showDarkNav
               ? "bg-cream text-pine"
               : "bg-snow/15 text-snow backdrop-blur-md"
           }`}

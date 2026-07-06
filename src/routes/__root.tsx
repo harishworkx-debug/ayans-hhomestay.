@@ -80,12 +80,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1f3a2c" },
       {
         title:
-          "Yulla Kanda Trek Homestay | Ayansh Snow-View — Best Stay Near Yulla Kanda (12,000 ft)",
+          "Best Homestay in Yullu Kanda | Ayansh Snow-View Trekker's Nest",
       },
       {
         name: "description",
         content:
-          "Best homestay for Yulla Kanda Trek (12,000 ft). Traditional Kinnauri wooden stay near Bustan. Rs.800/person with meals. Scenic 1-2 km forest walk to reach us. Base camp for sacred Krishna temple pilgrimage.",
+          "Looking for the best homestay in Yullu Kanda? Ayansh Snow-View offers authentic wooden rooms, home-cooked meals, and serves as the perfect base camp for the Yullu Kanda Trek at 12,000 ft.",
       },
       {
         property: "og:site_name",

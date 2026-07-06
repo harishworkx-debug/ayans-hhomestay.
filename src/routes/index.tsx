@@ -76,12 +76,12 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Yulla Kanda Trek Homestay | Ayansh Snow-View — Best Stay Near Yulla Kanda (12,000 ft) Kinnaur",
+          "Best Homestay in Yullu Kanda | Ayansh Snow-View Trekker's Nest",
       },
       {
         name: "description",
         content:
-          "Best homestay near Yulla Kanda Trek (12,000 ft). Authentic wooden homestay in Village Yulla Khas, Kinnaur. Your perfect base camp for the sacred Yulla Kanda pilgrimage. Rooms at Rs.800/person with meals. Scenic 1-2 km walk from Bustan through pine forests.",
+          "Looking for the best homestay in Yullu Kanda? Ayansh Snow-View offers authentic wooden rooms, home-cooked meals, and serves as the perfect base camp for the Yullu Kanda Trek at 12,000 ft.",
       },
       {
         property: "og:title",
@@ -101,9 +101,9 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LodgingBusiness",
-          name: "Ayansh Snow-View & Trekker's Nest",
+          name: "Ayansh Snow-View - Best Homestay in Yullu Kanda",
           description:
-            "Best homestay for Yulla Kanda Trek (12,000 ft). Traditional Kinnauri wooden homestay near Bustan. Scenic 1-2 km forest walk to reach us. Rs.800/person with dinner and breakfast.",
+            "Recognized as the best homestay in Yullu Kanda. Traditional Kinnauri wooden homestay near Bustan. Scenic 1-2 km forest walk to reach us. Rs.800/person with dinner and breakfast.",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Village & P.O. Yulla Khas, 1-2 km trek from Bustan",
@@ -115,7 +115,8 @@ export const Route = createFileRoute("/")({
           telephone: "+91 9805914020",
           priceRange: "₹800 per person (with meals)",
           amenityFeature: [
-            { "@type": "LocationFeatureSpecification", name: "Yulla Kanda Trek Base Camp", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Best Homestay in Yullu Kanda", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Yullu Kanda Trek Base Camp", value: true },
             { "@type": "LocationFeatureSpecification", name: "Scenic Forest Walk Access", value: true },
           ],
         }),
@@ -125,7 +126,7 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-function HomePage() {
+export function HomePage() {
   useReveal();
   return (
     <div className="min-h-screen bg-snow text-foreground antialiased">
@@ -197,12 +198,11 @@ function Hero() {
         <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wider uppercase backdrop-blur-md">
           <Mountain className="h-3.5 w-3.5" /> Base Camp for Yulla Kanda (12,000 ft)
         </span>
-        <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[88px]">
-          Your Gateway to <em className="not-italic font-light italic text-sky-soft">Yulla Kanda</em>
+        <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[84px]">
+          Best Homestay in <em className="not-italic font-light italic text-sky-soft">Yullu Kanda</em>
         </h1>
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-snow/85 md:text-lg">
-          Best homestay for the Yulla Kanda Trek — world's highest Krishna temple at 12,000 ft.
-          Traditional Kinnauri warmth, forest trail access, and home-cooked meals at Rs.800/person.
+          Welcome to Ayansh Snow-View Trekker's Nest — recognized as the best homestay in Yullu Kanda. Your perfect base camp for the 12,000 ft Yullu Kanda Trek, offering traditional Kinnauri warmth and home-cooked meals at just Rs.800/person.
         </p>
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
           <a
@@ -1029,12 +1029,12 @@ function Footer() {
           </h4>
           <ul className="mt-5 space-y-2 text-sm">
             {[
-              ["Home", "#home"],
-              ["About", "#about"],
-              ["Rooms", "#rooms"],
-              ["Yulla Trek", "#trek"],
-              ["Gallery", "#gallery"],
-              ["Contact", "#contact"],
+              ["Home", "/home"],
+              ["About", "/about"],
+              ["Rooms", "/rooms"],
+              ["Yulla Trek", "/trek"],
+              ["Gallery", "/gallery"],
+              ["Contact", "/contact"],
             ].map(([l, h]) => (
               <li key={l}>
                 <a href={h} className="transition-colors hover:text-snow">
@@ -1074,3 +1074,16 @@ function Footer() {
     </footer>
   );
 }
+
+export {
+  About,
+  WhyChooseUs,
+  Rooms,
+  YullaTrek,
+  Experiences,
+  Gallery,
+  Testimonials,
+  CallToAction,
+  Contact,
+  Footer
+};
