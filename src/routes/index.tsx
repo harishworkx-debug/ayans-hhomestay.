@@ -90,7 +90,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Plan your Yulla Kanda Trek with us! Closest homestay to the sacred 12,000 ft Krishna temple. Traditional Kinnauri stay with home-cooked meals at Rs.800/person. Adventure begins with a scenic walk from Bustan.",
+          "Plan your Yulla Kanda Trek with us! Closest homestay to the sacred 12,000 ft Krishna temple. Traditional Kinnauri stay with home-cooked meals at Rs.600/person. Adventure begins with a scenic walk from Bustan.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -103,7 +103,7 @@ export const Route = createFileRoute("/")({
           "@type": "LodgingBusiness",
           name: "Ayansh Snow-View - Best Homestay in Yullu Kanda",
           description:
-            "Recognized as the best homestay in Yullu Kanda. Traditional Kinnauri wooden homestay near Bustan. Scenic 1-2 km forest walk to reach us. Rs.800/person with dinner and breakfast.",
+            "Recognized as the best homestay in Yullu Kanda. Traditional Kinnauri wooden homestay near Bustan. Scenic 1-2 km forest walk to reach us. Rs.600/person with dinner and breakfast.",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Village & P.O. Yulla Khas, 1-2 km trek from Bustan",
@@ -113,7 +113,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "IN",
           },
           telephone: "+91 9805914020",
-          priceRange: "₹800 per person (with meals)",
+          priceRange: "₹600 per person (with meals)",
           amenityFeature: [
             { "@type": "LocationFeatureSpecification", name: "Best Homestay in Yullu Kanda", value: true },
             { "@type": "LocationFeatureSpecification", name: "Yullu Kanda Trek Base Camp", value: true },
@@ -202,7 +202,7 @@ function Hero() {
           Best Homestay in <em className="not-italic font-light italic text-sky-soft">Yullu Kanda</em>
         </h1>
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-snow/85 md:text-lg">
-          Welcome to Ayansh Snow-View Trekker's Nest — recognized as the best homestay in Yullu Kanda. Your perfect base camp for the 12,000 ft Yullu Kanda Trek, offering traditional Kinnauri warmth and home-cooked meals at just Rs.800/person.
+          Welcome to Ayansh Snow-View Trekker's Nest — recognized as the best homestay in Yullu Kanda. Your perfect base camp for the 12,000 ft Yullu Kanda Trek, offering traditional Kinnauri warmth and home-cooked meals at just Rs.600/person.
         </p>
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
           <a
@@ -292,7 +292,7 @@ function About() {
             {[
               { n: "12+", l: "Years hosting" },
               { n: "12,000 ft", l: "Yulla Kanda" },
-              { n: "Rs.800", l: "Per person/night" },
+              { n: "Rs.600", l: "Per person/night" },
             ].map((s) => (
               <div key={s.l} className="rounded-2xl border border-border/70 bg-cream/40 p-4 text-center">
                 <div className="text-2xl font-semibold text-forest">{s.n}</div>
@@ -418,7 +418,7 @@ function Rooms() {
             </p>
             <div className="flex items-center gap-2 rounded-full bg-forest/10 px-4 py-2 text-sm font-semibold text-forest">
               <Bed className="h-4 w-4" />
-              Rs.800 per person/night (with dinner & breakfast)
+              Rs.600 per person/night (with dinner & breakfast)
             </div>
           </div>
         </div>
@@ -433,14 +433,14 @@ function Rooms() {
               <div>
                 <h3 className="font-semibold text-pine">All-Inclusive Pricing</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  <strong className="text-forest">Rs.800 per person per night</strong> includes
+                  <strong className="text-forest">Rs.600 per person per night</strong> includes
                   comfortable stay, traditional dinner, and hot breakfast. No hidden charges.
                 </p>
               </div>
             </div>
             <div className="flex gap-4 text-sm">
               <div className="text-center">
-                <div className="text-2xl font-bold text-forest">Rs.800</div>
+                <div className="text-2xl font-bold text-forest">Rs.600</div>
                 <div className="text-xs text-muted-foreground">Per Person/Night</div>
               </div>
             </div>
@@ -464,7 +464,7 @@ function Rooms() {
                 />
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute right-4 top-4 rounded-full bg-snow/95 px-3 py-1.5 text-xs font-semibold text-forest shadow-soft">
-                  Rs.800/person
+                  Rs.600/person
                 </div>
               </div>
               <div className="p-7">
@@ -488,7 +488,7 @@ function Rooms() {
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-forest px-5 py-3 text-sm font-medium text-snow transition-all hover:bg-pine"
                 >
-                  <MessageCircle className="h-4 w-4" /> Book Now — Rs.800/person
+                  <MessageCircle className="h-4 w-4" /> Book Now — Rs.600/person
                 </a>
               </div>
             </article>
